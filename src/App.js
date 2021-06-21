@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Day from './Day'
 
 function App() {
+
+  const DATA = [['Monday', 20], ['Tuesday', 21], ['Wednesday', 17], ['Thursday', 16], ['Friday', 25], ['Saturday', 24], ['Sunday', 30]];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <table>
+        <thead>
+          <tr className="current">37°C </tr>
+          <span className="sun"></span>
+        </thead>
+        <tbody>
+          {DATA.map(pair => {
+            return (
+              <Day pair={pair} />
+            )
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
